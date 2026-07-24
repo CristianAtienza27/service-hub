@@ -2,7 +2,7 @@ package com.servicehub.auth.application;
 
 import java.util.UUID;
 
-public record RegistrationResult(
+public record RegisterBusinessResult(
         UUID tenantId,
         UUID businessId,
         UUID userId,

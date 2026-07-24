@@ -36,7 +36,7 @@ public class RegisterBusinessService {
     }
 
     @Transactional
-    public RegistrationResult register(
+    public RegisterBusinessResult register(
             String businessName,
             String slug,
             String ownerEmail,
@@ -72,7 +72,7 @@ public class RegisterBusinessService {
         );
         appUserRepository.save(owner);
 
-        return new RegistrationResult(
+        return new RegisterBusinessResult(
                 tenant.getId(),
                 business.getId(),
                 owner.getId(),

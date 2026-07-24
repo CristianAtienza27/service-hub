@@ -1,6 +1,6 @@
 package com.servicehub.auth.infrastructure.rest;
 
-import com.servicehub.auth.application.RegistrationResult;
+import com.servicehub.auth.application.RegisterBusinessResult;
 
 import java.util.UUID;
 
@@ -11,7 +11,7 @@ public record RegisterBusinessResponse(
         String slug
 ) {
 
-    public static RegisterBusinessResponse from(RegistrationResult result) {
+    public static RegisterBusinessResponse from(RegisterBusinessResult result) {
         return new RegisterBusinessResponse(
                 result.tenantId(),
                 result.businessId(),

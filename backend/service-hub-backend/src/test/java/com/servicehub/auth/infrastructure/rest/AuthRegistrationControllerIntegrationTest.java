@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Testcontainers
 @SpringBootTest
 @AutoConfigureMockMvc
-class RegistrationControllerIntegrationTest {
+class AuthRegistrationControllerIntegrationTest {
 
     @Container
     static final PostgreSQLContainer<?> POSTGRES =
