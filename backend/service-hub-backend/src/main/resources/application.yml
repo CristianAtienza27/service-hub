@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: service-hub-backend
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/service_hub
+    username: service_hub
+    password: service_hub_local
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
