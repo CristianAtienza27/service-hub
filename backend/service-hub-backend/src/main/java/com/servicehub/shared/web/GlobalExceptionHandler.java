@@ -2,6 +2,7 @@ package com.servicehub.shared.web;
 
 import com.servicehub.auth.domain.DuplicateEmailException;
 import com.servicehub.auth.domain.DuplicateSlugException;
+import com.servicehub.auth.domain.InvalidCredentialsException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +54,19 @@ public class GlobalExceptionHandler {
                 "Request validation failed",
                 request.getRequestURI(),
                 validationErrors
+        );
+    }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<ApiError> handleUnauthorized(
+            InvalidCredentialsException exception,
+            HttpServletRequest request
+    ) {
+        return buildResponse(
+                HttpStatus.UNAUTHORIZED,
+                exception.getMessage(),
+                request.getRequestURI(),
+                Map.of()
         );
     }
 
